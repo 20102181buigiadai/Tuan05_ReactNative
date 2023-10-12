@@ -16,7 +16,7 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={MainScreen} />
+        {/* <Stack.Screen name="Main" component={MainScreen} /> */}
         <Stack.Screen name="Screen2_a" component={Screen2_a} />
         <Stack.Screen name="Screen2_b" component={Screen2_b} />
         <Stack.Screen name="Screen2_c" component={Screen2_c} />
