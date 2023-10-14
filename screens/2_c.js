@@ -1,22 +1,17 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Image,
-  Text,
-  TouchableOpacity,
-  CheckBox
-} from "react-native";
-// import CheckBox from 'react-native-check-box'
+import { View, Text, TouchableOpacity, CheckBox } from "react-native";
 import { TextInput } from "react-native-web";
 
 export default function App() {
+  const [check, setCheck] = useState([true,false,true,false]);
+
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center",backgroundColor:"#3B3B98" }}>
       <View
         style={{
           flex: 1,
           width: "90%",
+          height:"90%",
           backgroundColor: "#23235B",
           borderRadius: 15
         }}
@@ -36,27 +31,165 @@ export default function App() {
             PASSWORD GENERATOR
           </Text>
         </View>
-        <View>
-          <Text></Text>
+        <View
+          style={{ flex: 2, justifyContent: "center", alignItems: "center" }}
+        >
+          <Text
+            style={{ width: "90%", height: "60%", backgroundColor: "#151537" }}
+          ></Text>
         </View>
-        <View>
-          <View>
-            <Text>Password length</Text>
-            <TextInput />
+        <View
+          style={{
+            flex: 8,
+            justifyContent: "space-between",
+            alignItems: "center"
+          }}
+        >
+          <View
+            style={{
+              flex: 1,
+              width: "90%",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <Text
+              style={{ flex: 9, fontSize: 20, fontWeight: 700, color: "white" }}
+            >
+              Password length
+            </Text>
+            <TextInput
+              style={{
+                width: "40%",
+                height: 35,
+                backgroundColor: "white",
+                fontSize: 20,
+                fontWeight: 600
+              }}
+            />
+          </View>
+
+          <View
+            style={{
+              flex: 1,
+              width: "90%",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <Text
+              style={{ flex: 9, fontSize: 20, fontWeight: 700, color: "white" }}
+            >
+              Include lower case letters
+            </Text>
+            <CheckBox
+            checkedColor="blue"
+              value={check[0]}
+              onValueChange={() => {
+                const newSelection = [...check];
+                newSelection[0] = !newSelection[0];
+                setCheck(newSelection);
+              }}
+              style={{ width: 30, height: 30 }}
+              color="black"  
+            />
+          </View>
+
+          <View
+            style={{
+              flex: 1,
+              width: "90%",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <Text
+              style={{ flex: 9, fontSize: 20, fontWeight: 700, color: "white" }}
+            >
+              Include upcase letters
+            </Text>
+            <CheckBox
+              value={check[1]}
+              onValueChange={() => {
+                const newSelection = [...check];
+                newSelection[1] = !newSelection[1];
+                setCheck(newSelection);
+              }}
+              style={{ width: 30, height: 30 }} color="black" 
+            />
+          </View>
+
+          <View
+            style={{
+              flex: 1,
+              width: "90%",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <Text
+              style={{ flex: 9, fontSize: 20, fontWeight: 700, color: "white" }}
+            >
+              Include number
+            </Text>
+            <CheckBox
+              value={check[2]}
+              onValueChange={() => {
+                const newSelection = [...check];
+                newSelection[2] = !newSelection[2];
+                setCheck(newSelection);
+              }}
+              style={{ width: 30, height: 30 }} color="black" 
+            />
+          </View>
+
+          <View
+            style={{
+              flex: 1,
+              width: "90%",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <Text
+              style={{ flex: 9, fontSize: 20, fontWeight: 700, color: "white" }}
+            >
+              Include special symbol
+            </Text>
+            <CheckBox
+              value={check[3]}
+              onValueChange={() => {
+                const newSelection = [...check];
+                newSelection[3] = !newSelection[3];
+                setCheck(newSelection);
+              }}
+              style={{ width: 30, height: 30 }} color="black" 
+            />
           </View>
         </View>
-        <View></View>
+        <View
+          style={{ flex: 2, justifyContent: "center", alignItems: "center" }}
+        >
+          <TouchableOpacity
+            style={{
+              width: "90%",
+              height: 50,
+              backgroundColor: "#3B3B98",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <Text style={{ fontSize: 18, fontWeight: 700, color: "white" }}>
+              GENERATE PASSWORD
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#23235B",
-    color: "white"
-  }
-});
