@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity, CheckBox } from "react-native";
 import { TextInput } from "react-native-web";
 
-export default function App() {
+export default function App({navigation}) {
   const [check, setCheck] = useState([true,false,true,false]);
 
   return (
@@ -183,6 +183,7 @@ export default function App() {
               justifyContent: "center",
               alignItems: "center"
             }}
+           onPress={() => navigation.navigate("ScreenTiki_Ok")}
           >
             <Text style={{ fontSize: 18, fontWeight: 700, color: "white" }}>
               GENERATE PASSWORD

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { View, Image, Text, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-web";
 
-export default function App() {
+
+export default function App({navigation}) {
   const [quanlity, setQuanlity] = useState(1);
 
   return (
@@ -299,6 +300,7 @@ export default function App() {
                 justifyContent: "center",
                 alignItems: "center"
               }}
+              onPress={() => navigation.navigate("Main")}
             >
               <Text style={{ fontSize: 20, fontWeight: 700, color: "white" }}>
                 TIẾN HÀNH ĐẶT HÀNG

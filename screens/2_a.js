@@ -11,7 +11,17 @@ import {
   TouchableOpacity
 } from "react-native";
 
-export default function App() {
+export default function App({navigation}) {
+  const data = [
+    { name: "dai", password: "1" },
+    { name: "d", password: "321" },
+    { name: "buigiadai", password: "123456" },
+    { name: "bgd", password: "123456" },
+    { name: "gd", password: "123456" }
+  ];
+  const [name, setName] = useState("")
+  const [password, setPassword] = useState("")
+
   return (
     <View style={styles.container}>
       <View
@@ -55,6 +65,7 @@ export default function App() {
               marginLeft: 10
             }}
             placeholder="Name"
+            onChangeText={(text)=>setName(text)}
           />
         </View>
         <View style={styles.containerInput}>
@@ -73,6 +84,7 @@ export default function App() {
               marginLeft: 10
             }}
             placeholder="Password"
+            onChangeText={(text)=>setPassword(text)}
           />
           <Image
             style={{ flex: 2, width: 32, height: 32 }}
@@ -91,7 +103,16 @@ export default function App() {
             justifyContent: "center",
             alignItems: "center"
           }}
-         
+          onPress={() => {
+            const check = data.some(
+              (obj) => obj.name === name && obj.password === password
+            );
+            if (check == true) {
+              navigation.navigate("Screen2_b")
+            } else {
+              alert("Sai thong tin dang nhap!");
+            }
+          }}
         >
           <Text style={{ fontSize: 20, color: "white", fontWeight: 700 }}>
             LOGIN

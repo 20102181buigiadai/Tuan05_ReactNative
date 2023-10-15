@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-web";
 
-export default function App() {
+export default function App({ navigation }) {
   return (
     <View style={styles.container}>
       <View
         style={{
-          flex:2,
+          flex: 2,
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "flex-start",
@@ -54,7 +54,7 @@ export default function App() {
             {[1, 2, 3, 4, 5].map((index) => (
               <Image
                 key={index}
-                style={{ width:39, height: 39 }}
+                style={{ width: 39, height: 39 }}
                 source={require("../assets/Star 1.png")}
               />
             ))}
@@ -72,7 +72,7 @@ export default function App() {
             }}
           >
             <Image
-              style={{ width: 50, height: 40 ,resizeMode:"contain"}}
+              style={{ width: 50, height: 40, resizeMode: "contain" }}
               source={require("../assets/camera.png")}
             />
             <Text style={{ fontSize: 18, fontWeight: 700 }}>Thêm hình ảnh</Text>
@@ -125,6 +125,7 @@ export default function App() {
             justifyContent: "center",
             alignItems: "center"
           }}
+          onPress={() => navigation.navigate("Screen2_c")}
         >
           <Text style={{ fontSize: 22, fontWeight: 700, color: "#FFFFFF" }}>
             Gửi
